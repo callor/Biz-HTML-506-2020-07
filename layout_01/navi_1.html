@@ -5,8 +5,26 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
-        div {
+        /*
+        style 지정할때 사용하는 단위
+        px, pt, dp, em, rem 등등..
+
+        rem(em) :
+        box내부에 문자열 content 있을때
+        content 문자열중에 가장 큰 문자열을 기준으로
+        배율을 정하라
+        */
+        #header {
+            background-color: green;
+            color:white;
+            padding:1.5rem;
+            text-align: center;
+        }
+        #nav {
             background-color: blue;
+        }
+        ul {
+            margin:0;
         }
 
         li {
@@ -22,17 +40,31 @@
             color:white;
         }
 
+        /*
+        text-decoration : anchar tag는 특성상 문자열에 밑줄과 같은
+        속성이 지정된다
+        이 속성을 모두 없애서 디자인이 흐트러지는 것을 방지할 수 있다.
+        */
+        a {
+            color:white;
+            text-decoration: none;
+        }
+
     </style>
 
 </head>
 <body>
-    <div>
+    <div id="header">
+        <h3>나의 홈페이지</h3>
+        <p>나의 홈페이지에 오신것을 환영합니다</p>
+    </div>
+    <div id="nav">
         <ul>
             <li>Home</li>
-            <li><a href="https://naver.com">네이버</a></li>
-            <li><a href="https://daum.net">다음</a></li>
-            <li><a href="https://google.com">구글</a></li>
-            <li><a href="https://auction.com">옥션</a></li>
+            <li><a href="https://naver.com" target="_new">네이버</a></li>
+            <li><a href="https://daum.net" target="_new">다음</a></li>
+            <li><a href="https://google.com" target="_new">구글</a></li>
+            <li><a href="https://callor.com" target="_new">내꺼</a></li>
         </ul>
     </div>
 </body>
