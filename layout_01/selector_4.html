@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        p {
+            font-size: 30px;
+        }
+
+        span {
+            color:blue;
+            border:1px solid yellowgreen;
+        }
+
+        /*
+        span tag로 감싸진 영역을 폭을 늘려서 표시하고 싶다.
+        그러나 span tag는 inline tag이기 때문에 
+        width적용이 안된다.
+        이럴때 display 속성을 inline-block으로 만들어주면
+        width적용을 할수 있다.
+        */
+        #s1 {
+            display: inline-block;
+            font-style: italic;
+            width: 100px;
+        }
+
+        #s2 {
+            font-weight: bold;
+        }
+
+        #s3 {
+            color:green;
+        }
+
+    </style>
+</head>
+<body>
+
+    <p>
+        나는 자랑스런 <span id="s1">태극기</span> 앞에 
+        <span id="s2">조국</span>과 <span id="s3">민족</span>을 위하여 충성을 다할것을
+        굳게 맹세 합니다.
+    </p>
+
+</body>
+</html>
