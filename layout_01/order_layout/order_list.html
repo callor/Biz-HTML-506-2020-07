@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        table {
+            /*  table을 그릴때 태두리 선을 간격없이 단선으로 */
+            border-collapse: collapse;;
+            border-spacing: 0;
+            /* box model tag 태두리 선의 두께, 모양, 색깔을 지정  */
+            border : 1px solid blue;
+            width: 95%;
+        }
+
+        /* 
+        여러개의 selector에 공통의 style을 지정할때는
+        selector를 컴마(,)로 나열하면 된다.
+        */
+        th, td {
+
+            border : 1px solid #ccc;
+            padding: 8px 8px;
+
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            
+            text-align: left;
+        
+        }
+
+        tr {
+            border-bottom: 1px solid #ddd;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>NO</th>
+                <th>주문번호</th>
+                <th>주문일자</th>
+                <th>고객번호</th>
+                <th>상품번호</th>
+                <th>상품이름</th>
+                <th>가격</th>
+                <th>수량</th>
+                <th>합계</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>20001</td>
+                <td>2020-07-31</td>
+                <td>C001</td>
+                <td>P0001</td>
+                <td>새우깡번들</td>
+                <td>1200</td>
+                <td>10</td>
+                <td>12000</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
