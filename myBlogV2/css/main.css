@@ -1,0 +1,142 @@
+
+/*
+html css 코딩을 할때
+width 값은 browser의 최대 width값을 기준으로 하여
+ % 값으로 요소(엘리먼트)의 width를 지정할 수 있다
+
+ height 값은 broser의 height값과는 전혀 다른 상대를 대상으로
+ 만들어져서 요소들의 height값을 %로 지정할 수 없다
+
+ 요소들의 heigth값을 %로 지정하기 위해서
+ 먼저 html과 body height값을 지정해 주어야 한다.
+
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+}
+
+header {
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 1.5rem;
+
+    background-image: url("../images/road-1072823.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: 100%;
+    height: 100%;
+
+    background-attachment: fixed;
+
+    color:white;
+}
+
+#main {
+    height: 100%;
+    background-image: url("../images/tree-832079.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+   
+}
+
+#button {
+    width: 80%;
+    text-align: right;
+    padding-top: 8px;
+    margin:0 auto;
+}
+
+/* 
+id값이 button으로 설정된 box에 소속되어 있는 
+button tag에만 style을 지정하자
+*/
+#button button {
+    background-color: rgb(107, 107, 218);
+
+    color:white;
+    border:none;
+    /*
+    padding, margin에서 많이 사용하는 단위
+    rem : 내부의 text크기를 1로 하여 비례적으로 적용하는 값
+    button의 경우 desing guide에서 제정한 값으로
+        top, buttom : 8px, left, right : 16px
+    */
+    padding: 8px 16px;
+    vertical-align: middle;
+    cursor: pointer;
+
+    /* transparent : 투명색 */
+    /* 
+    hover에서 밑줄 효과를 주고자 할때
+    화면이 흔들리는 현상을 막기 위해서서
+    기본 태두리의 bottom을 투명색으로 같은 두께만큰 지정을 해준다
+    */
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease-in;
+
+}
+
+#button button:hover {
+    background-color: honeydew;
+    color:black;
+    border-bottom: 2px solid green;
+}
+
+/*
+marign, padding의 값 지정
+4개의 값 : Top 부터 시계방향으로 1개씩 지정
+2개의 값 : Top, Botton 그리고 Left, Right
+*/
+#blog_body {
+    width:80%;
+    border:1px solid green;
+    /* 
+    blog_body box의 Top, Bottom 여백을 10px로 하고
+    left, right 여백은 바깥쪽 box 크기를 계산하여
+    같은 값으로 자동 조절하라라는 의미
+    == blog_body를 좌우 중앙에 정렬하는 용도로 많이 쓰인다
+     */
+    margin:10px auto;
+    background-image: url("images/fall-1072821.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#blog_body:hover {
+    background-image: url("images/road-4143370.jpg");
+}
+
+.blog_title {
+    background-color: teal;
+    padding: 8px;
+    color:white;
+    cursor: pointer;
+}
+
+.blog_title:hover {
+    color:blue;
+}
+
+.blog_text {
+    padding:8px;
+}
+
+footer {
+    background-color: blue;
+    text-align: center;
+    padding: 8px;
+    color:greenyellow;
+}
+
+

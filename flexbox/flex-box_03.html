@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        section {
+            display: flex;
+            /*
+            flex-children을 배치하는 방향 설정
+            기본값은 row 로 가로방향으로 배치
+            column 설정하면 세로방향으로 배치
+            */
+            flex-flow: row;
+            flex-flow: column;
+            /*
+            flex-children이 parent에 가득찼을때 
+            자동으로 줄바꿈을 할것인가(wrap)
+            하지 말것인가(no-wrap : 기본값)
+                no-wrap으로 설정하면 chilren을 무조건
+                parent에 가득채우고 width, height를 조절한다
+            */
+            flex-wrap: wrap;
+            border:1px solid blue;
+        }
+        div {
+            border:1px solid green;
+            width:300px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div>div box</div>
+        <div>div box</div>
+        <div>div box</div>
+        <div>div box</div>
+        <div>div box</div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        section {
+            border:1px solid blue;
+        }
+        div {
+            border:1px solid green;
+            /*   
+            display:block인 div box를 inline 형질변경(성질로 변경)
+            block의 성질을 잃어버리고, 
+            Content 크기만큼만 width가 설정되어 버린다
+            */
+            /* display: inline; */
+            /*
+            div box등 block box의 성질(width를 설정)을 유지하면서
+            inline 성질을 가진 특별한 존재로 변경
+            */
+            display: inline-block;
+        }
+
+        #div1 {
+            width:30%;
+            margin:0 auto;
+        }
+        #div2 {
+            width:40%;
+            margin:0 auto;
+        }
+        /* div3, div4, div5에 공통 style 지정 */
+        #div3, #div4, #div5 {
+            width: 20%;
+            margin:0 auto;
+        }
+
+
+        #div5, #div4, #div6 {
+            /*   
+            div(section, article, header, footer)를 사용하여 
+            layout만들때 원하는 위치에 박스를 배열하는데 많은 어려움을 겪었다
+            크기를 조절하거나 할때도 많은 어려움을 겪었다.
+            그래서 과거에는 table을 사용하여 layout을 만들기도 했다.
+            그러한 것들이 성능상에 많은 문제를 일으키게 되었고
+            여러사람이 연구한 결과 float라는 속성을 사용하여
+            box를 수직방향에서 stacking 하는 방식으로 사용을 많이 했다
+            이 방법도 여러가지 문제을 일으키더라.
+
+            box 배치가 어떤 원칙이 없이 나열되고
+            parent box를 벗어나서 엉뚱한 곳에 위치하는 상태가 되더라
+            이 방법은 높이 방향으로 위치를 지정하여 배치하기가 매우 어렵다
+            */
+            float:left;
+        }
+
+        #div1, #div2, #div3 {
+            margin:10px;
+        }
+
+        #div4, #div5, #div6 {
+            margin:10px;
+        }
+
+    </style>
+</head>
+<body>
+    <section>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+        <div id="div4">div4</div>
+        <div id="div5">div5</div>
+        <div id="div6">div6</div>
+    </section>
+</body>
+</html>
