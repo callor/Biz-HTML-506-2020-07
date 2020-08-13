@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            height: 100%;
+        }
+        div {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* odd 홀수 */
+        /* 
+        DOC의 div 전체 리스트중에서 odd 순번에 있는 BOX
+        background 를 green으로 설정
+        */
+        div:nth-child(odd) {
+            background-color: green;
+        }
+
+        /* even 짝수 */
+        /*
+        DOC div 전체 리스트중에서 even 순번에 있는 BOX
+        backgroud를 blue로 설정
+        */
+        div:nth-child(even) {
+            background-color: blue;
+        }
+
+        div {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+
+            background-attachment: fixed;
+        }
+
+        div:nth-child(1) {background-image: url("images/fall-1072821.jpg");}
+        div:nth-child(2) {background-image: url("images/img_001.jpg");   }
+        div:nth-child(3) {background-image: url("images/img_002.jpg");   }
+        div:nth-child(4) {background-image: url("images/road-1072823.jpg");   }
+        div:nth-child(5) {background-image: url("images/road-4143370.jpg");   }
+        div:nth-child(6) {background-image: url("images/tree-736885.jpg");   }
+        div:nth-child(7) {background-image: url("images/tree-832079.jpg");   }
+
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+</body>
+</html>
