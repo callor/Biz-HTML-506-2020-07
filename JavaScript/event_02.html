@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div {
+            height: 50px;
+            margin: 10px;
+            border:1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div onclick="color(this)">blue</div>
+    <div onclick="color(this)">red</div>
+    <div onclick="color(this)">green</div>
+    <div onclick="color(this)">yellow</div>
+    <div onclick="color(this)">#0F0F0F</div>
+    <div onclick="color(this)">rgba(222,222,100,0.2)</div>
+    <script>
+        function color(div_tag) {
+            var color_string = div_tag.innerHTML;
+            alert(color_string);
+            div_tag.style.backgroundColor = color_string;
+       } 
+
+    </script>
+
+
+    
+</body>
+</html>

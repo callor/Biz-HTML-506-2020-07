@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <div id="div1">여기는 div 영역입니다</div>
+    <script>
+        // id가 div1인 div tag를 지칭, DO(Document Object tag)
+        document.getElementById("div1")
+        // 방금 선택된 tag의 내용(문자열)을 나는 JS 코드 로 바꾸어라
+        .innerHTML = "나는 JS 코드"
+
+        // id가 div2인 div tag를 찾아서 innerHTML 속성에
+        // 반갑습니다 라는 문자열을 할당하라
+        // div2의 내용을 변경하라 라는 것과 같다.
+        // 하지만 아직 div2 tag는 document에 그려지기 전이다.
+        // div2 객체가 만들어지기 전이다.
+        // 따라서 innterHTML = "" 라는 명령는 
+        //      of null(Null Pointer Exception)발생시킨다
+       document.getElementById("div2").innerHTML = "반갑습니다" 
+
+        // 기본적인 javascript코드는 
+        // 보통 DOM이 모두 그려진다음에
+        // 위치한다.
+    </script>
+    <div id="div2">여기는 div2 영역입니다</div>
+</body>
+</html>
+

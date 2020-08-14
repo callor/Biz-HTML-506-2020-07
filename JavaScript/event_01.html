@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+
+    <input id="input1"><br/>
+    <button onclick="myclick()">클릭</button>
+    <script>
+        
+        // function(함수) 밖에 있는 script는
+        // Browser가 시작, 새로고침 되는 순간에 실행되고
+        alert("시작")
+
+        // function(함수)로 감싸진 코드는 함수(myclick()) 를 호출하는 시점에서
+        // 코드가 실행된다.
+        // function : js method를 생성하는 키워드
+        function myclick() {
+            // id가 input1 인 input box에 입력한 
+            //  값(value)을 가져와서 data에 저장
+            var data = document.getElementById("input1").value
+            alert("반갑습니다")
+            alert("입력한 값은 : " + data)
+        }
+
+    </script>
+</body>
+</html>
+
+
+
