@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        div {
+            border:1px solid blue;
+            height: 30px;
+            margin:10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        // var $ = "변수로 사용가능";
+        var $input = "이친구도 변수"
+        // jQuery(document.ready(function(){
+        // }))
+        // $(document.ready(function(){
+        // }))
+        $(function(){
+            // $("#id") : id 선택자(Selector)
+            var div1 = $("#div1").text()
+            // alert("DIV1 : " + div1)
+        
+            // $(".divs") : 클래스 선택자
+            // 클래스가 divs로 되어있는 항목을 클릭하면
+            $(".divs").click(function(){
+                // $(this) : divs가 클래스로 되어있는 항목중에서
+                // 클릭된 자신의 정보가 담긴 변수
+                var data = $(this).text()
+                alert(data)
+            })
+
+            // event 핸들러 : 클릭되면 수행할 코드
+            // id가 div3인 항목이 클릭되면
+            $("#div3").click(function(){
+                alert("나는 div3번 입니다")
+            })
+        })
+    </script>
+
+</head>
+<body>
+    <div id="div1" class="divs">div1</div>
+    <div id="div2" class="divs">div2</div>
+    <div id="div3" class="divs">div3</div>
+    <div id="div4" class="divs">div4</div>
+    <div id="div5" class="divs">div5</div>
+</body>
+<script>
+    var div1 = document.getElementById("div1").innerText
+    // alert(div1)
+</script>
+</html>

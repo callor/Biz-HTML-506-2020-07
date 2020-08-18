@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function(){
+            // div tag의 css 속성을 Jq를 사용하여 변경하기
+            // $("div").css("background-color","blue")
+            $("div").text("Korea")
+            $("div").css("height","30px")
+            $("div").css("margin","10px")
+
+            // toggle : 클릭할때마다 상태가 반전이 반복되는 코드
+            var sw = -1
+            $("div").click(function(){
+                if(sw > 0) {
+                    $(this).removeClass("divs_blue") // blue style class 삭제
+                    $(this).addClass("divs_red") // red style class 추가
+                } else {
+                    $(this).removeClass("divs_red") // red style class 삭제
+                    $(this).addClass("divs_blue") // blue style class 추가
+                }
+                sw *= -1 // -1, 1, -1 계속 반복
+            })
+        })
+    </script>
+    <style>
+        .divs_red {
+            background-color: red;
+            color:white;
+        }
+        .divs_blue {
+            background-color: blue;
+            color:white;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
