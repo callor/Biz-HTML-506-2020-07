@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        ul {
+            /*  기본설정의 ul li 묶음은 세로방향으로 리스트가 나열 */
+            /* ul tag의 display를 flex로 변경해 주면 가로방향으로 리스트가 나열 */
+            display: flex;
+            background-color: rgb(88, 88, 202);
+            color: white;
+        }
+
+        /*
+        li tag는 box Model tag 인데 부모인 ul tag의 display:flex로
+        변경하면
+        li tag들의 성질은 inline-block, inline-flex 형식으로 변경
+        box model : 실제 width 크기와 관계없이 한줄 전체를 차지하는 형태
+        inline : width를 지정하거나, padding을 주어도 효과가 없다.
+        inline-block(inline-flex) : 내부의 Content만큼만 width를 차지하고
+        필요에 따라 width를 지정하거나, padding을 주면 적절한 효과를
+        만들어낼수 있다.
+        */
+        ul li {
+            list-style-type: none;
+            /* 
+            top, bottom : 16px, 
+            left, right : 8px 
+            */
+            padding: 16px 8px;
+            margin: 0px 5px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* 
+        로그인버튼 
+        flex-box items 들 중에서 어떤 한 item에
+        margin-left를 auto로 설정하면 
+        그 item부터 오른쪽으로 정렬되는 효과를 낼수 있다
+        */
+        ul li:nth-child(4) {
+            margin-left: auto;
+        }
+
+        ul li:nth-child(5) {
+            margin-right: 10px;
+        }
+
+        ul li:hover {
+            background-color: gray;
+            color: white;
+            border-bottom: 2px solid green;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("li").click(function () {
+                var text = $(this).text()
+                alert(text)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>상품관리</li>
+            <li>거래처관리</li>
+            <li>로그인</li>
+            <li>회원가입</li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>

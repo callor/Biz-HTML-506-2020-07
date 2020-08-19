@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+
+        form fieldset {
+            width: 80%;
+            margin: 10px auto;
+            border:1px solid blue;
+            border-radius: 5px;
+        }
+
+        form fieldset legend {
+            color:blue;
+            font-weight: bold;
+        }
+
+    
+
+        label {
+            display: inline-block;
+            width: 20%;
+            text-align: right;
+            margin:4px;
+            padding:8px;
+            color:rgb(100, 78, 228);
+            font-weight: bold;
+        }
+        input {
+            display: inline-block;
+            width: 60%;
+            margin:4px;
+            padding:8px;
+            border-radius: 5px;
+            border:1px solid gray;
+        }
+
+        #btn_box {
+            text-align: right;
+            width:80%;
+        }
+
+        #btn_box button {
+            padding:8px 16px;
+            border:none;
+            border-radius: 5px;
+            color:white;
+            cursor: pointer;
+        }
+
+        #btn_box button:first-child {
+            background-color: green;
+        }
+
+        #btn_box button:last-child {
+            background-color: blue;
+        }
+
+        #btn_box button:hover {
+            background-color: gray;
+            color:white;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <form method="POST">
+        <fieldset>
+            <legend>상품정보 등록</legend>
+            <div><label>상품코드</label><input name="p_code" id="p_code" /></div>
+            <div><label>상품이름</label><input name="p_name" id="p_name" /></div>
+            <div><label>주매입처</label><input name="p_dcode" id="p_dcode" /></div>
+            <div><label>상품규격</label><input name="p_std" id="p_std" /></div>
+            <div><label>매입가격</label><input name="p_iprice" id="p_iprice" /></div>
+            <div><label>판매가격</label><input name="p_oprice" id="p_oprice" /></div>
+            <div><label>대표이미지</label><input type="file" name="p_image" id="p_image" /></div>
+            <div id="btn_box">
+                <button type="button">리스트</button>
+                <button type="button">저장</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
