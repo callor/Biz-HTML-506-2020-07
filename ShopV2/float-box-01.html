@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        background-color: yellow;
+        border: 1px solid green;
+        /* height: 50px; */
+      }
+      div {
+        border: 1px solid blue;
+        margin: 10px;
+        width: 100px;
+      }
+
+      div.float {
+        /*
+        item box를 float를 설정하는 순간
+        부모 box는 item들을 인식하지 못하여
+        아무것도 없는 상태라고 생각해버린다.
+        */
+        float: left;
+      }
+
+      .clear {
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div class="float">가</div>
+      <div class="float">나</div>
+      <div class="float">다</div>
+      <div class="float">라</div>
+      <div class="float">마</div>
+      <div class="clear"></div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      article {
+        border: 1px solid blue;
+      }
+      div {
+        background-color: yellow;
+        margin: 10px;
+        height: 20px;
+      }
+
+      article.flex {
+        display: flex;
+        width: 30%;
+      }
+
+      article.flex div {
+        width: 100px;
+      }
+
+      article.inline-flex {
+        display: inline-flex;
+        width: 30%;
+      }
+
+      article.inline-flex div {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="inline-flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+    <article class="inline-flex">
+      <div></div>
+      <div></div>
+      <div></div>
+    </article>
+  </body>
+</html>

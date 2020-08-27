@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // $(function(){  })
+      document.addEventListener("DOMContentLoaded", function () {
+        let title1; // undefined : 변수를 선언하고 초기화 하지 않았을때 기본 설정
+        let title2 = null;
+        let title3 = ""; // null과 매우 유사한 문자열 초기화 값
+        let title4 = NaN; // Not a Number : 어떤변수에 담긴 문자열이 숫자로 변환가능하냐
+        let title5 = 0;
+        let title6 = 123;
+        let msg = "대한민국";
+        if (title1 != undefined) {
+          msg = title1;
+        }
+        if (title2 != null) {
+          msg = title2;
+        }
+        if (title3 != "") {
+          msg = title3;
+        }
+        if (title4 != NaN) {
+          msg = title4;
+        }
+        if (title5 != 0) {
+          msg = title5;
+        }
+        if (title6 != 0) {
+          msg = title6;
+        }
+
+        // $("#msg")
+        document.querySelector("#msg").innerHTML = msg;
+      });
+    </script>
+  </head>
+  <body>
+    <h3 id="msg">여기는 메시지가 표시될 영역</h3>
+  </body>
+</html>

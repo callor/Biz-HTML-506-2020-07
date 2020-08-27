@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        flex-flow: column;
+      }
+
+      header {
+        background-color: rgb(43, 197, 43);
+        color: white;
+        padding: 2rem;
+      }
+
+      nav {
+        background-color: black;
+        color: white;
+      }
+
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: inherit;
+        color: inherit;
+
+        display: flex;
+      }
+
+      nav ul li {
+        color: inherit;
+        background-color: inherit;
+        cursor: pointer;
+      }
+
+      nav ul li:first-child {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        /*
+          a tag를 가장 안쪽에 배치할때는
+          display를 inline-block으로 설정해 주어야
+          부모 Box와 어울리는 모양이 된다.
+        */
+        display: inline-block;
+        text-decoration: none;
+        color: inherit;
+        padding: 12px 16px;
+      }
+
+      nav ul li a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      section#main_content {
+        flex: 100%;
+        border: 1px solid red;
+        width: 100%;
+        margin: 10px auto;
+        overflow: auto;
+
+        display: flex;
+      }
+
+      #main_content aside {
+        flex: 1;
+        border: 1px solid green;
+        margin: 10px 3px;
+      }
+
+      #main_content section {
+        flex: 3;
+        border: 1px solid red;
+        margin: 10px 3px;
+        overflow: auto;
+      }
+
+      footer {
+        background-color: blue;
+        color: white;
+      }
+      footer address {
+        text-align: center;
+        background-color: inherit;
+        color: inherit;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" width="250px" height="80px" alt="logo" />
+    </header>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/bbs">게시판</a></li>
+        <li><a href="/member/login">로그인</a></li>
+        <li><a href="/member/join">회원가입</a></li>
+      </ul>
+    </nav>
+    <section id="main_content">
+      <aside id="left_menu">
+        <ul>
+          <li>의류</li>
+          <li>신발</li>
+          <li>여름용품</li>
+        </ul>
+      </aside>
+      <section id="content">
+        <img
+          src="tree-832079.jpg"
+          alt="메인이미지"
+          width="200px"
+          height="200px"
+          style="float: left; margin: 5px;"
+        />
+        <p>
+          오등은 자에 아 조선의 독립국임과 조선인의 자주민임을 선언하노라.
+          차로써 세계만방에 고하야 인류평등의 대의를 극명하며, 차로써 자손만대에
+          고하야 민족자존의 정권을 영유케 하노라. 반만년 역사의 권위를 장하야
+          차를 선언함이며, 이천만 민중의 성충을 합하야 차를 포명함이며, 민족의
+          향구여일한 자유발전을 위하야 차를 주장함이며, 인류적 양심의 발로에
+          기인한 세계개조의 대기운에 순응병진하기 위하야 차를 제기함이니, 시ㅣ
+          천의 명명이며, 시대의 대세ㅣ며, 전인류 공존동생권의 정당한 발동이라,
+          천하하물이던지 차를 저지억제치 못할지니라. 구시대의 유물인 침략주의,
+          강권주의의 희생을 작하야 유사이래 누천년에 처음으로 이민족 겸제의
+          통고를 상한지 금에 십년을 과한지라. 아 생존권의 박상됨이 무릇
+          기하ㅣ며,심령상 발전의 장애됨이 무릇 기하ㅣ며, 민족적 존영의 훼손됨이
+          무릇 기하ㅣ며, 신예와 독창으로써 세계문화의 대조류에 기여보비할 기연을
+          유실함이 무릇 기하ㅣ뇨. 희라, 구래의 억울을 선창하려 하면, 시하의
+          고통을 파탈하려 하면, 장래의 협위를 삼제하려 하면, 민족적 양심과
+          국가적 염의의 압축소잔을 흥분신장하려 하면, 각개 인격의 정당한 발달을
+          수하려 하면, 가련한 자제에게 고치적 재산을 유여치 안이하려 하면,
+          자자손손의 영구완전한 경복을 도영하려 하면, 최대급무가 민족적 독립을
+          확실케 함이니, 이천만 각개가 인마다 방촌의 인을 회하고, 인류통성과
+          시대양심이 정의의 군과 인도의 간과로써 호원하는 금일, 오인은 진하야
+          취하매 하강을 좌치 못하랴. 퇴하야 작하매 하지를 전치 못하랴.
+          병자수호조규 이래 시시종종의 금석맹약을 식하얏다 하야 일본의 무신을
+          죄하려 안이 하노라. 학자는 강단에서, 정치가는 실제에서, 아 조종세업을
+          식민지시하고, 아 문화민족을 토매인우하야, 한갓 정복자의 쾌를 탐할
+          ㅅ분이오, 아의 구원한 사회기초와 탁락한 민족심리를 무시한다 하야
+          일본의 소의함을 책하려 안이 하노라. 자기를 책려하기에 급한 오인은 타의
+          원우를 가치 못하노라. 현재를 주무하기에 급한 오인은 숙석의 징변을 가치
+          못하노라. 금일 오인의 소임은 다만 자기의 건설이 유할 ㅅ분이오, 결코
+          타의 파괴에 재치 아니하도다. 엄숙한 양심의 명령으로써 자가의 신운명을
+          개척함이오, 결코 구원과 일시적 감정으로써 타를 질축배척함이 안이로다.
+          구사상, 구세력에 기미된 일본 위정가의 공명적 희생이 된 부자연, 우
+          불합리한 착오상태를 개선광정하야, 자연, 우 합리한 정경대원으로 귀환케
+          함이로다. 당초에 민족적 요구로서 출치 안이한 양국병합의 결과가, 필경
+          고식적 위압과 차별적 불평과 통계숫자상 허식의 하에서 이해상반한 양
+          민족간에 영원히 화동할 수 업는 원구를 거익심조하는 금래실적을 관하라.
+          용명과감으로써 구오를 확정하고, 진정한 이해와 동정에 기본한 우호적
+          신국면을 타개함이 피차간 원화소복하는 첩경임을 명지할 것 안인가. ㅅ도,
+          이천만 함분축원의 민을 위력으로써 구속함은 다만 동양의 영구한 평화를
+          보장하는 소이가 안일 ㅅ분 안이라, 차로 인하야 동양안위의 주축인 사억만
+          지나인의 일본에 대한 위구와 시위를 갈스록 농후케 하야, 그 결과로 동양
+          전국이 공도동망의 비운을 초치할 것이 명하니, 금일 오인의 조선독립은
+          조선인으로 하야금 정당한 생영을 수케 하는 동시에, 일본으로 하야금
+          사로로서 출하야 동양 지지자인 중책을 전케 하는 것이며, 지나로 하야금
+          몽매에도 면하지 못하는 불안, 공포로서 탈출케 하는 것이며, ㅅ도
+          동양평화로 중요한 일부를 삼는 세계평화, 인류행복에 필요한 계단이 되게
+          하는 것이라. 이 엇지 구구한 감정상 문제ㅣ리오. 아아, 신천지가 안전에
+          전개되도다. 위력의 시대가 거하고 도의의 시대가 내하도다. 과거 전세기에
+          연마장양된 인도적 정신이 바야흐로 신문명의 서광을 인류의 역사에
+          투사하기 시하도다. 신춘이 세계에 내하야 만물의 회소를 최촉하는도다.
+          동빙한설에 호흡을 폐칩한 것이 피일시의 세ㅣ라 하면 화풍난양에 기맥을
+          진서함은 차일시의 세ㅣ니, 천지의 복운에 제하고 세계의 변조를 승한
+          오인은 아모 주저할 것 업스며, 아모 기탄할 것 업도다. 아의 고유한
+          자유권을 호전하야 생왕의 낙을 포향할 것이며, 아의 자족한 독창력을
+          발휘하야 춘만한 대계에 민족적 정화를 결뉴할지로다. 오등이 자에
+          분기하도다. 양심이 아와 동존하며 진리가 아와 병진하는도다.
+          남녀노소업시 음울한 고소로서 활발히 기래하야 만휘군상으로 더부러
+          흔쾌한 부활을 성수하게 되도다. 천백세 조령이 오등을 음우하며 전세계
+          기운이 오등을 외호하나니, 착수가 곧 성공이라. 다만, 전두의 광명으로
+          맥진할 ㅅ다름인뎌.
+        </p>
+      </section>
+      <aside id="right_menu">Right Menu</aside>
+    </section>
+    <footer>
+      <address>CopyRight &copy; callor@callor.com</address>
+    </footer>
+  </body>
+</html>
