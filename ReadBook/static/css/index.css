@@ -1,0 +1,96 @@
+/* 
+선택사항
+주석을 한글로 작성했을때 처음작성한 editor가 아닌 다른 editor로 open했을때
+한글이 깨지는 경우가 있는데 그 현상을 막는 효과 있다.
+*/
+@charset "UTF-8";
+
+* {
+  /* 
+    box 를 그릴때 margin padding에 의해 
+    layout 무너지는 현상을 최소화 시키기 위한 초기화 조치
+    */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  /* 
+    nav#main-nav tag에 position:relative를 적용시키기 위해서
+    미리 header에 position을 지정해준다
+    */
+  position: relative;
+
+  height: 400px;
+  color: white;
+
+  background-image: url("../images/road-1072823.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-weight: 500;
+  color: white;
+  /* left, bottom, right, top */
+  text-shadow: -2px 2px rgb(76, 0, 255), 0 2px rgb(76, 0, 255),
+    1px 0 rgb(76, 0, 255), 0 -1px rgb(76, 0, 255);
+}
+
+nav#main-nav {
+  /*
+    header에 position이 relative로 설정되어 있기 때문에
+    header를 따라다니는 모양새가된다
+    */
+  position: relative;
+  background-color: rgb(84, 84, 236);
+  width: 100%;
+}
+
+#main-nav ul {
+  list-style: none;
+  display: flex;
+}
+
+#main-nav ul li {
+  display: inline-block;
+  padding: 12px 16px;
+  color: white;
+  margin: 0 12px;
+  cursor: pointer;
+}
+
+#main-nav ul li:first-child {
+  font-size: 16px;
+  font-weight: 900;
+  color: yellowgreen;
+}
+
+#main-nav ul li:nth-child(4),
+#main-nav ul li:nth-child(5) {
+  margin-left: auto;
+}
+
+#main-nav ul li:hover {
+  background-color: #ddd;
+  color: blue;
+}
+
+section#main-section {
+  height: 1000px;
+}
+
+footer {
+  background-color: blue;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

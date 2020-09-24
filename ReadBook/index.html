@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Read Book 2020</title>
+    <link href="static/css/index.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function () {
+        // 화면에 scroll이 일어나면
+        $(window).scroll(function () {
+          let headerHeight = $("header").height(); // header tag의 높이값
+          // 화면을 세로방향으로 스크롤할때 윈도우 화면의 최 상단 좌표 가져오기
+          let windowTop = $(window).scrollTop();
+          if (windowTop > headerHeight) {
+            $("#main-nav").css("position", "fixed");
+            $("#main-nav").css("top", "0");
+          } else {
+            $("#main-nav").css("position", "relative");
+          }
+
+          console.log(headerHeight, windowTop);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Read Book 2020</h1>
+      <h5>책속에 길이 있다네!! 정말로??</h5>
+    </header>
+    <nav id="main-nav">
+      <ul>
+        <li>Read Book</li>
+        <li>도서정보</li>
+        <li>독서록</li>
+        <li>네이버 검색</li>
+        <li>회원가입</li>
+        <li>로그인</li>
+        <li>마이페이지</li>
+        <li>로그아웃</li>
+      </ul>
+    </nav>
+    <section id="main-section">BODY</section>
+    <footer>
+      <address>CopyRight &copy; callor@callor.com</address>
+    </footer>
+  </body>
+</html>
