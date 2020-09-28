@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let list = document.querySelectorAll("li");
+        list.forEach(function (li) {
+          li.addEventListener("click", function () {
+            alert(this.innerText);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>대한</li>
+      <li>민국</li>
+      <li>우리</li>
+      <li>나라</li>
+      <li>만세</li>
+    </ul>
+  </body>
+</html>
