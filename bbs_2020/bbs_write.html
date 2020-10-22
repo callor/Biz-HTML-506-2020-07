@@ -56,11 +56,6 @@
         border: none;
       }
 
-      form#bbs-form button {
-        padding: 10px 16px;
-        margin: 5px;
-      }
-
       section#bbs-list table {
         width: 100%;
         border-collapse: collapse;
@@ -71,6 +66,29 @@
       section#bbs-list td {
         border: 1px solid #aaa;
         padding: 5px;
+      }
+
+      div#button-box {
+        text-align: right;
+      }
+
+      div#button-box button {
+        padding: 8px 16px;
+        margin: 5px;
+        border-radius: 5px;
+        color: white;
+        border: none;
+        outline: none;
+      }
+
+      div#button-box button:hover {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+      }
+      button#btn-send {
+        background-color: blue;
+      }
+      button#btn-reset {
+        background-color: orange;
       }
     </style>
     <script>
@@ -96,11 +114,14 @@
                 // API 서버로 부터 가져온 bbs 데이터를
                 // TR, TD 조합된 list로 재 생성하고
                 let trs = bbs_list.map((item) => {
-                  let tr = $("<tr/>");
+                  let tr = $("<tr/>", {
+                    class: "bbs-tr",
+                    "data-seq": item.b_seq,
+                  });
 
+                  tr.append($("<td/>", { text: item.b_writer }));
                   tr.append($("<td/>", { text: item.b_date }));
                   tr.append($("<td/>", { text: item.b_time }));
-                  tr.append($("<td/>", { text: item.b_writer }));
                   tr.append($("<td/>", { text: item.b_subject }));
                   return tr;
                 });
@@ -114,6 +135,73 @@
             });
         };
         getList();
+        /*
+          동적으로 생성된 tag에 event 핸들링을 할때는
+          $(selector).click(function(){}) 방식의 핸들이 적용이 안된다.
+          동적으로 생성된 tag에 event 핸들링을 할때는
+          document 차원 핸들링을 해주어야만 제대로 작동이 된다.
+          */
+        $(document).on("click", "tr.bbs-tr", function () {
+          // alert($(this).data("seq"));
+          // 게시글의 리스트를 클릭하면 api 서버에 데이터를 요청하여
+          // 게시글을 가져오고, 가져온 게시글을 form에 보이기
+          let seq = $(this).data("seq");
+          axios({
+            url: `http://localhost:8080/bbs/api/bbs/${seq}`,
+            method: "GET",
+          })
+            // .then(function(res){  })
+            .then((res) => {
+              if (res.status === 200) {
+                let data = res.data;
+                $("#b_seq").val(data.b_seq);
+                $("#b_date").val(data.b_date);
+                $("#b_time").val(data.b_time);
+                $("#b_writer").val(data.b_writer);
+                $("#b_subject").val(data.b_subject);
+                $("#b_content").val(data.b_content);
+              }
+            })
+            .catch((err) => {
+              alret("통신오류");
+            });
+        }); // list click event end
+        $(document).on("click", "button#btn-send", () => {
+          let seq = $("#b_seq").val();
+          let send_method = "POST";
+          if (seq > 0) {
+            send_method = "PUT";
+            // alert("업데이트");
+            // } else {
+            // alert("추가");
+          }
+
+          // form에 담긴 데이터를 axios(ajax방식)으로 서버로 전송하기
+          // 1. js의 FormData 클래스를 객체로 생성
+          // let formData = new FormData();
+
+          // form에 입력된 input box의 모든 값을 문자열화하여
+          // FormData 객체로 만들어서 formData 변수에 담아라
+          let formData = $("form#bbs-form").serialize();
+          // alert(JSON.stringify(formData));
+
+          axios({
+            url: "http://localhost:8080/bbs/api/bbs",
+            method: send_method,
+            data: formData,
+          })
+            .then((res) => {
+              alert("데이터 전송 성공");
+            })
+            .catch((err) => {
+              alert("통신오류");
+            });
+        }); // btn-send end
+
+        // reset 버튼 hidden input data clear 버그 수정
+        $(document).on("click", "#btn-reset", () => {
+          $("#b_seq").val(0);
+        });
       });
     </script>
   </head>
@@ -147,8 +235,10 @@
       <div>
         <label>내용</label><input name="b_content" id="b_content" type="text" />
       </div>
-      <div>
-        <button type="button">전송</button>
+      <div id="button-box">
+        <input name="b_seq" id="b_seq" value="0" type="hidden" />
+        <button type="button" id="btn-send">전송</button>
+        <button type="reset" id="btn-reset">새로작성</button>
       </div>
     </form>
   </body>
