@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        display: flex;
+      }
+
+      section#bbs-list,
+      form#bbs-form {
+        flex: 1;
+        margin: 10px 5px;
+        padding: 10px;
+        border: 1px solid #aaa;
+        background-color: #ddd;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+        border-radius: 10px;
+      }
+
+      form#bbs-form div {
+        border: 1px solid #fff;
+      }
+      form#bbs-form label,
+      form#bbs-form input {
+        display: inline-block;
+        margin: 5px;
+        padding: 5px;
+      }
+
+      form#bbs-form label {
+        width: 20%;
+        text-align: right;
+        color: blue;
+        font-weight: bold;
+      }
+
+      form#bbs-form input {
+        width: 70%;
+        border-radius: 5px;
+        outline: 0;
+        border: none;
+      }
+
+      form#bbs-form button {
+        padding: 10px 16px;
+        margin: 5px;
+      }
+
+      section#bbs-list table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #aaa;
+      }
+
+      section#bbs-list th,
+      section#bbs-list td {
+        border: 1px solid #aaa;
+        padding: 5px;
+      }
+    </style>
+    <script>
+      $(function () {
+        // function getList() { }
+        const getList = function () {
+          axios({
+            url: "http://localhost:8080/bbs/api/bbs",
+            method: "GET",
+          })
+            .then(function (res) {
+              if (res.status === 200) {
+                // alert("데이터가 정상적으로 수신되었다");
+                // alert(JSON.stringify(res.data));
+                let bbs_list = res.data;
+
+                // let ul = $("<ul/>");
+                // for (i = 0; i < bbs_list.length; i++) {
+                //   let li = $("<li/>", { text: bbs_list[i].b_subject });
+                //   ul.append(li);
+                // }
+
+                // API 서버로 부터 가져온 bbs 데이터를
+                // TR, TD 조합된 list로 재 생성하고
+                let trs = bbs_list.map((item) => {
+                  let tr = $("<tr/>");
+
+                  tr.append($("<td/>", { text: item.b_date }));
+                  tr.append($("<td/>", { text: item.b_time }));
+                  tr.append($("<td/>", { text: item.b_writer }));
+                  tr.append($("<td/>", { text: item.b_subject }));
+                  return tr;
+                });
+
+                // table의 tbody 영역에 추가
+                $("section#bbs-list tbody").html(trs);
+              }
+            })
+            .catch(function (err) {
+              alert("오류발생");
+            });
+        };
+        getList();
+      });
+    </script>
+  </head>
+  <body>
+    <section id="bbs-list">
+      <table>
+        <thead>
+          <tr>
+            <th>작성자</th>
+            <th>작성일자</th>
+            <th>작성시각</th>
+            <th>제목</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    <form id="bbs-form">
+      <div>
+        <label>작성일자</label><input name="b_date" id="b_date" type="text" />
+      </div>
+      <div>
+        <label>작성시각</label><input name="b_time" id="b_time" type="text" />
+      </div>
+      <div>
+        <label>작성자</label><input name="b_writer" id="b_writer" type="text" />
+      </div>
+      <div>
+        <label>제목</label><input name="b_subject" id="b_subject" type="text" />
+      </div>
+      <div>
+        <label>내용</label><input name="b_content" id="b_content" type="text" />
+      </div>
+      <div>
+        <button type="button">전송</button>
+      </div>
+    </form>
+  </body>
+</html>

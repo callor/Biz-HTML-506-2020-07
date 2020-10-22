@@ -1,0 +1,47 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+  .div1 {
+    border: 1px solid blue;
+  }
+
+  .div2 {
+    border: 1px solid green;
+    width: 60%;
+    margin: 20px;
+    height: 100px;
+  }
+</style>
+<script>
+  $(function () {
+    $(".div1").click(function (event) {
+      alert(event.target.className);
+      let class_name = event.target.className;
+      if (class_name === "div2 a") {
+        alert("A box가 클릭됨");
+      } else if (class_name === "div2 b") {
+        alert("B box가 클릭됨");
+      } else if (class_name === "div2 c") {
+        alert("C box가 클릭됨");
+      }
+    });
+
+    $(".div2 a").click(function (event) {
+      event.stopPropagation();
+      alert("div2 a 클릭");
+    });
+    /*
+    $(".div2 b").click(function () {
+      alert("div2 b 클릭");
+    });
+    $(".div2 c").click(function () {
+      alert("div2 c 클릭");
+    });
+    */
+  });
+</script>
+
+<div class="div1">
+  <div class="div2 a" data-seq="1"></div>
+  <div class="div2 b" data-seq="2"></div>
+  <div class="div2 c" data-seq="3"></div>
+</div>
