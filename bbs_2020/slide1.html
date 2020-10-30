@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>MY NAV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Recursive:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        min-height: 8vh;
+        background-color: #4d4954;
+        font-family: "Poppins", sans-serif;
+      }
+      .logo {
+        color: rgb(226, 226, 226);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 20px;
+      }
+
+      .nav-link {
+        display: flex;
+        justify-content: space-around;
+        width: 30%;
+      }
+
+      .nav-link li {
+        list-style: none;
+      }
+
+      .nav-link a {
+        color: rgb(226, 226, 226);
+        text-decoration: none;
+        letter-spacing: 3px;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .bugger {
+        display: none;
+        cursor: pointer;
+      }
+
+      .bugger div {
+        width: 25px;
+        height: 3px;
+        background-color: rgb(226, 226, 226);
+        margin: 5px;
+        transition: all 0.3s ease;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .nav-link {
+          width: 60%;
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .nav-link {
+          position: absolute;
+          right: 0px;
+          height: 92vh;
+          top: 8vh;
+          background-color: #5d4954;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 50%;
+          transform: translateX(100%);
+          transition: transform 0.5s ease-in;
+        }
+        .nav-link li {
+          opacity: 0;
+        }
+        .bugger {
+          display: block;
+        }
+      }
+
+      .nav-active {
+        transform: translateX(0%);
+      }
+
+      @keyframes navLinkFade {
+        from {
+          opacity: 0;
+          transform: translateX(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+
+      .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .toggle .line2 {
+        opacity: 0;
+      }
+      .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <h3>MY NAV</h3>
+      </div>
+      <ul class="nav-link">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Work</a></li>
+        <li><a href="#">Portfolio</a></li>
+      </ul>
+      <div class="bugger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <script>
+      const navSlide = () => {
+        const bugger = document.querySelector(".bugger");
+        const nav = document.querySelector(".nav-link");
+        const navLinks = document.querySelectorAll(".nav-link li");
+
+        bugger.addEventListener("click", function () {
+          // Toggle Nav
+          nav.classList.toggle("nav-active");
+
+          // Animation Links
+          navLinks.forEach(function (link, index) {
+            if (link.style.animation) {
+              link.style.animation = "";
+            } else {
+              link.style.animation = `navLinkFade 0.5s ease forwards ${
+                index / 7 + 0.3
+              }s`;
+            }
+          });
+          // Bugger Animation
+          bugger.classList.toggle("toggle");
+        });
+      };
+      navSlide();
+    </script>
+  </body>
+</html>

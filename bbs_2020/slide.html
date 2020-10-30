@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+      $(function () {
+        $("button").click(function () {
+          $("div#slide").toggleClass("open");
+        });
+      });
+    </script>
+    <style>
+      div#slide {
+        width: 0;
+        border: 1px solid blue;
+        height: 100px;
+        transition: all 1s ease-in-out;
+      }
+      div#slide.open {
+        width: 100%;
+        transition: all 1s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="slide"></div>
+    <button>슬라이드</button>
+  </body>
+</html>
