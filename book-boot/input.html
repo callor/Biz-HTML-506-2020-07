@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .querySelector("#btn-save")
+        .addEventListener("click", function (e) {});
+
+      /*
+        form으로 감싸진 button, input type='submit'이 클릭되면
+        form에서 서버로 데이터가 전송되기 위하여
+        submit 이벤트가 발생한다.
+        submit 이벤트를 가로채서 마치 button이 클릭되었을때
+        수행할 코드를 여기에 추가할수 있다.
+      */
+      document.addEventListener("submit", function (e) {
+        // alert("form submit");
+        // 이벤트 핸들러에서 return false를 수행하면
+        // 더 이상 기본 이벤트가 진행되지 않는데
+        // 간혹 return false가 작동이 안되는 경우가 있다
+        // 이때는 이벤트 핸들러에 매개변수를 설정하고
+        // stopPropagetion() 메서드를 실행하여
+        // 이벤트를 중단시킨다.
+        e.stopPropagation();
+        // 고유의 이벤트(submit)를 멈추기
+        // form의 submit을 가로채기 하여 코드를 실행하면서
+        // 유효성 검사를 할때 return false, stopPropagation이
+        // 작동을 안할때
+        e.preventDefault();
+
+        const title = document.querySelector("#title");
+        const author = document.querySelector("#author");
+        const comp = document.querySelector("#comp");
+        const price = document.querySelector("#price");
+
+        if (title.value === "") {
+          alert("도서명은 반드시 입력해야 합니다");
+          title.focus();
+          return false;
+        }
+        if (author.value === "") {
+          alert("저자명은 반드시 입력해야 합니다");
+          author.focus();
+          return false;
+        }
+
+        // 유효성 검사가 모두 완료되면 서버로 데이터를 전송
+        document.querySelector("form").submit();
+        return false;
+      });
+    });
+  </script>
+  <body>
+    <form method="POST">
+      <div>
+        <label>도서명</label>
+        <input name="title" id="title" />
+      </div>
+      <div>
+        <label>저자</label>
+        <input name="author" id="author" />
+      </div>
+      <div>
+        <label>출판사</label>
+        <input name="comp" id="comp" />
+      </div>
+      <div>
+        <label>가격</label>
+        <input name="price" id="price" />
+      </div>
+      <div>
+        <input type="submit" id="btn-save" value="저장" />
+      </div>
+    </form>
+  </body>
+</html>
